@@ -32,14 +32,14 @@ const TaskDateEmojiMap: Record<TaskDateName, string> = {
 
 // Multiple TaskDateNames map to '' (Unknown, TimeStart, TimeEnd); skip those so the
 // reverse lookup of an absent emoji falls through to the `?? Unknown` default below.
-const EmojiToTaskDateNameMap: Record<string, TaskDateName> = Object.entries(TaskDateEmojiMap).reduce(
+const EmojiToTaskDateNameMap: Record<string, TaskDateName> = Object.entries(TaskDateEmojiMap).reduce<Record<string, TaskDateName>>(
   (acc, [key, emoji]) => {
     if (emoji !== '') {
       acc[emoji] = key as TaskDateName;
     }
     return acc;
   },
-  {} as Record<string, TaskDateName>
+  {}
 );
 
 // Unused. Uncomment if needed in the future
