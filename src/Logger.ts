@@ -19,8 +19,7 @@ class Logger {
     return Logger.instance;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public log(message: string, object?: any) {
+  public log(message: string, object?: unknown) {
     if (this.isDebug) {
       // eslint-disable-next-line obsidianmd/rule-custom-message -- intentional: gated behind the isDebug user setting
       console.log('[' + moment().format('YYYY-MM-DD-HH:mm:ss.SSS') + '][info][ical] ' + message);
@@ -36,7 +35,6 @@ export function logger(isDebug?: boolean) {
   return Logger.getInstance(isDebug);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function log(message: string, object?: any) {
+export function log(message: string, object?: unknown) {
   return Logger.getInstance().log(message, object);
 }
