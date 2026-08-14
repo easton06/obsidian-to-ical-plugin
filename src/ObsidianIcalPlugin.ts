@@ -105,6 +105,17 @@ export default class ObsidianIcalPlugin extends Plugin {
 
     await this.configurePeriodicSave();
     await this.configureValidationRefresh();
+
+    this.addCommand({
+      id: "start-export",
+      name: "Scan vault for tasks and export to remote",
+      callback: async () => {
+        let notice = new Notice("Scanning for iCal tasks and exporting");
+        await this.main.start();
+        notice.hide();
+      }
+    });
+
   }
 
   onunload() {

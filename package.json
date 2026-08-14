@@ -30,7 +30,7 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --coverage --watchAll=false",
     "lint": "eslint src/",
-    "build": "tsc -noEmit -skipLibCheck && bun esbuild.config.mjs production",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
     "version": "bun version-bump.mjs && git add manifest.json versions.json"
   },
   "dependencies": {
